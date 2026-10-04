@@ -1,3 +1,5 @@
+import logging
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -21,4 +23,6 @@ def driver():
 def test_google_title(driver):
     driver.get("https://www.google.com")
     WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.NAME, "q")))
+    logging.info("Testcase has been executed successfully")
     assert "Google" in driver.title
+    
